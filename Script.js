@@ -50,3 +50,37 @@ function showTask(task) {
 
     document.getElementById("list").appendChild(li);
 }
+let time = 1500;
+let interval;
+
+function updateDisplay() {
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    document.getElementById("time").innerText =
+        (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
+}
+
+function startTimer() {
+    if (interval) return;
+
+    interval = setInterval(() => {
+        if (time > 0) {
+            time--;
+            updateDisplay();
+        } else {
+            clearInterval(interval);
+        }
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(interval);
+    interval = null;
+}
+
+function resetTimer() {
+    clearInterval(interval);
+    interval = null;
+    time = 1500;
+    updateDisplay();
+}
