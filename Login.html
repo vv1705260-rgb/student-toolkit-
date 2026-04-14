@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+.box {
+    background: #1e293b;
+    padding: 20px;
+    margin: 100px auto;
+    width: 250px;
+    border-radius: 10px;
+}
+
+input, button {
+    margin: 10px;
+    padding: 8px;
+    width: 80%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Login</h2>
+
+<input id="user" placeholder="Username"><br>
+<input id="pass" type="password" placeholder="Password"><br>
+
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+<script>
+function login() {
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u === "admin" && p === "1234") {
+        window.location.href = "index.html";
+    } else {
+        document.getElementById("msg").innerText = "Wrong credentials!";
+    }
+}
+</script>
+
+</body>
+</html>
